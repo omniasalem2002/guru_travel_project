@@ -1,4 +1,5 @@
 import 'package:guru/Screens/login_view.dart';
+import 'package:guru/core/utils/colors_app.dart';
 import 'package:guru/onboarding_contents.dart';
 import 'package:guru/size_config.dart';
 import 'package:guru/splash.dart';
@@ -36,7 +37,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         borderRadius: BorderRadius.all(
           Radius.circular(50),
         ),
-        color: Colors.white,
+        color: ColorsApp.whiteColor,
       ),
       margin: const EdgeInsets.only(right: 5),
       height: 5,
@@ -59,8 +60,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color.fromARGB(255, 35, 218, 224),
-                Color.fromARGB(255, 5, 179, 170)
+                ColorsApp.primaryColor,
+                ColorsApp.semiPrimaryColor
               ],
             ),
           ),
@@ -96,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               fontFamily: "Mulish",
                               fontWeight: FontWeight.w600,
                               fontSize: (width <= 550) ? 30 : 35,
-                              color: const Color.fromARGB(255, 0, 0, 0),
+                              color: ColorsApp.blackColor,
                             ),
                           ),
                           const SizedBox(height: 15),
@@ -106,7 +107,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               fontFamily: "Mulish",
                               fontWeight: FontWeight.w300,
                               fontSize: (width <= 550) ? 17 : 25,
-                              color: const Color.fromARGB(255, 0, 0, 0),
+                              color: ColorsApp.blackColor,
                             ),
                             textAlign: TextAlign.center,
                           )
@@ -139,17 +140,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) {
-                                      return LoginView();
+                                      return const LoginView();
                                     },
                                   ),
                                 );
                               },
                               child: const Text(
                                 "START",
-                                style: TextStyle(color: Colors.white),
+                                style: TextStyle(color: ColorsApp.whiteColor),
                               ),
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.black,
+                                backgroundColor: ColorsApp.blackColor,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(50),
                                 ),
@@ -174,7 +175,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   },
                                   child: const Text(
                                     "SKIP",
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: ColorsApp.whiteColor),
                                   ),
                                   style: TextButton.styleFrom(
                                     elevation: 0,
@@ -194,10 +195,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                   },
                                   child: const Text(
                                     "NEXT",
-                                    style: TextStyle(color: Colors.white),
+                                    style: TextStyle(color: ColorsApp.whiteColor),
                                   ),
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: ColorsApp.blackColor,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(50),
                                     ),
