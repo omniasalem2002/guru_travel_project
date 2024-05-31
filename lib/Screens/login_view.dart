@@ -15,7 +15,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  String _selectedUserType = '';
+  String? _selectedUserType;
   final _birthdateController = TextEditingController();
   DateTime? _selectedDate;
   String? _selectedPaymentType;
@@ -61,48 +61,85 @@ class _LoginViewState extends State<LoginView> {
               Column(
                 children: [
                 const  SizedBox(height: 30,),
-          Center(
-          child: Container(
-              alignment: Alignment.center,
-              width: 140,
-              height: 140,
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(70)),
-              child: Image.asset(
-                "images/logo_remove.png",
-                height: 120,
-                width: 120,
-                // fit: BoxFit.fill,
-              )),
-                ),
-                  SizedBox(height: 20,),
+                  Center(
+                    child: Card(
+                      color: const Color.fromARGB(255, 5, 179, 170),
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(80.0),
+                      ),
+                      child: Container(
+                          alignment: Alignment.center,
+                          width: 160,
+                          height: 160,
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            //color: Colors.grey[200],
+
+                              borderRadius: BorderRadius.circular(70)),
+                          child: Image.asset(
+                            "images/logo_remove.png",
+                            height: 120,
+                            width: 120,
+                            // fit: BoxFit.fill,
+                          )),
+                    ),
+                  ),
+               const SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      ElevatedButton.icon(
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                            const Color.fromARGB(255, 1, 61, 58)),
                         onPressed: () {
                           setState(() {
-                            _selectedUserType = 'Tourist';
-                          });
+                            _selectedUserType = 'Tour Guide';
+                          }
+                          );
                         },
-                        icon: const Icon(Icons.person,color: ColorsApp.primaryColor,),
-                        label: const Text('Tourist',style: TextStyle(color: ColorsApp.primaryColor),),
+                        child: const Text(
+                          "Tour Guide",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
-                      ElevatedButton.icon(
-                        onPressed: () => {
-                        setState(() {
-                        _selectedUserType = 'Tour Guide';
-                        }
-                        )
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor:
+                            const Color.fromARGB(255, 1, 61, 58)),
+                        onPressed: () {
+                          setState(() {
+                            _selectedUserType = " Tourist  ";
+                          }
+                          );
                         },
-                        icon: const Icon(Icons.map,color: ColorsApp.primaryColor,),
-                        label: const Text('Tour Guide',style: TextStyle(color: ColorsApp.primaryColor),),
+                        child: const Text(
+                          " Tourist  ",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
+
+                      // ElevatedButton.icon(
+                      //   onPressed: () {
+                      //     setState(() {
+                      //       _selectedUserType = 'Tourist';
+                      //     });
+                      //   },
+                      //   icon: const Icon(
+                      //     Icons.person,
+                      //     color: ColorsApp.primaryColor,
+                      //   ),
+                      //   label: const Text(
+                      //     'Tourist',
+                      //     style: TextStyle(color: ColorsApp.primaryColor),
+                      //   ),
+                      // ),
                     ],
                   ),
-                  if(_selectedUserType=='Tour Guide')
+                  if(_selectedUserType=='Tour Guide'  || _selectedUserType==null)
                     Form(
                       //formKey
                       child: Column(
@@ -110,12 +147,12 @@ class _LoginViewState extends State<LoginView> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                        const SizedBox(height: 20),
-                          Container(
+                         Container(
                             width: double.infinity, // This makes the container take up the full width
                             child: Align(
                               alignment: Alignment.centerLeft, // Align the text to the start of the container
                               child: Text(
-                                "Register",
+                                "Register As Tour Guide",
                                 style: Styles.font26LightGreyMedium(context),
                                 textAlign: TextAlign.left, // Align text inside the Text widget to the left
                               ),
@@ -154,14 +191,14 @@ class _LoginViewState extends State<LoginView> {
                               labelText: 'Birthdate',fillColor: ColorsApp.primaryColor,
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: ColorsApp.primaryColor,
+                                  color: ColorsApp.darkPrimary,
                                   width: 1.3,
                                 ),
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: ColorsApp.primaryColor,
+                                  color: ColorsApp.darkPrimary,
                                   width: 1.3,
                                 ),
                                 borderRadius: BorderRadius.circular(16.0),
@@ -182,10 +219,11 @@ class _LoginViewState extends State<LoginView> {
                           DropdownButtonFormField<String>(
                             value: _selectedPaymentType,
                             decoration: InputDecoration(
+                              fillColor: ColorsApp.darkPrimary,
                               labelText: 'Select Payment Type',
                               border: OutlineInputBorder(
                                 borderSide: const BorderSide(
-                                  color: ColorsApp.primaryColor,
+                                  color: ColorsApp.darkPrimary,
                                   width: 1.3,
                                 ),
                                 borderRadius: BorderRadius.circular(16.0),
@@ -279,7 +317,7 @@ class _LoginViewState extends State<LoginView> {
                             },
                             maxLines: 5,
                           ),
-                          SizedBox(height: 20),
+                         const SizedBox(height: 20),
                           Text(
                             "Work Experience",
                             style: Styles.font17GreyRegular(context),
@@ -294,13 +332,13 @@ class _LoginViewState extends State<LoginView> {
                             },
                             maxLines: 5,
                           ),
-                          SizedBox(height: 20),
+                        const  SizedBox(height: 20),
                           Padding(
-                            padding: const EdgeInsets.all(5),
+                            padding: const EdgeInsets.all(3),
                             child: AppTextButton(
                               buttonText: 'Create',
-                              textStyle: Styles.font17GreyRegular(context),
-                              backgroundColor: ColorsApp.primaryColor,
+                              textStyle: Styles.font14LightGreyRegular(context),
+                              backgroundColor: ColorsApp.darkPrimary,
                               onPressed: () {
                                 //validateThenDoAddDepartment(context);
                               },
@@ -311,8 +349,101 @@ class _LoginViewState extends State<LoginView> {
                       ),
                     ),
 
-                  if(_selectedUserType=='Tourist')
-                   const Text("kkkkkk")
+                  if(_selectedUserType==" Tourist  ")
+                    Form(
+                      //formKey
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 20),
+                          Container(
+                            width: double.infinity, // This makes the container take up the full width
+                            child: Align(
+                              alignment: Alignment.centerLeft, // Align the text to the start of the container
+                              child: Text(
+                                "Register As Tourist",
+                                style: Styles.font26LightGreyMedium(context),
+                                textAlign: TextAlign.left, // Align text inside the Text widget to the left
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Text("Name", style: Styles.font17GreyRegular(context),),
+                          CustomTextFormField(hintText: "enter your name", validator:  (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your name';
+                            }
+                            if (value.length < 3) {
+                              return 'Name must be at least 3 characters long';
+                            }
+                            return null;
+                          },),
+                          const SizedBox(height: 20),
+                          Text("Phone number", style: Styles.font17GreyRegular(context),),
+                          CustomTextFormField(hintText: "enter your Phone number", validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your phone number';
+                            }
+                            if (value.length != 10) { // Adjust length as per your requirement
+                              return 'Phone number must be exactly 10 digits';
+                            }
+                            if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                              return 'Phone number must contain only digits';
+                            }
+                            return null;
+                          },
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            "Country Comming From",
+                            style: Styles.font17GreyRegular(context),
+                          ),
+                          CustomTextFormField(
+                            hintText: "Enter your Country",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your Country';
+                              }
+                              if (value.length < 3) {
+                                return 'Country must be at least 3 characters long';
+                              }
+                              return null;
+                            },
+                          ),
+                          const  SizedBox(height: 20),
+                          Text(
+                            "Places Want To Visit In Egypt",
+                            style: Styles.font17GreyRegular(context),
+                          ),
+                          CustomTextFormField(
+                            hintText: "Enter Places Want To Visit In Egypt",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter Places Want To Visit In Egypt';
+                              }
+                              if (value.length < 3) {
+                                return 'Places must be at least 3 characters long';
+                              }
+                              return null;
+                            },
+                          ),
+                          const  SizedBox(height: 20),
+                          Padding(
+                            padding: const EdgeInsets.all(3),
+                            child: AppTextButton(
+                              buttonText: 'Create',
+                              textStyle: Styles.font14LightGreyRegular(context),
+                              backgroundColor: ColorsApp.darkPrimary,
+                              onPressed: () {
+                                //validateThenDoAddDepartment(context);
+                              },
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
 
                 ],
               )

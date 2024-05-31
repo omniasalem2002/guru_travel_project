@@ -7,6 +7,8 @@ class ColorsApp{
   static const Color whiteColor =Colors.white;
   static const Color moreLightGrey = Color(0xFFFDFDFD);
   static const Color grey = Color(0xFF757575);
+  static const Color darkPrimary =  Color.fromARGB(255, 1, 61, 58);
+
 
 
 

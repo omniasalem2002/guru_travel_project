@@ -57,36 +57,23 @@ class CustomTextFormField extends StatelessWidget {
         autocorrect: false,
         controller: controller,
         decoration: InputDecoration(
+          border: const UnderlineInputBorder(
+            borderSide: BorderSide(color: ColorsApp.darkPrimary), // Default underline color
+          ),
+          focusedBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: ColorsApp.darkPrimary), // Underline color when focused
+          ),
+          enabledBorder: const UnderlineInputBorder(
+            borderSide: BorderSide(color: ColorsApp.darkPrimary), // Underline color when not focused
+          ),
           isDense: true,
           contentPadding: contentPadding ??
               const EdgeInsets.symmetric(
                 vertical: 14,
                 horizontal: 20,
               ),
-          focusedBorder: focusBorder ??
-              OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: ColorsApp.blackColor,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
-          enabledBorder: enabledBorder ??
-              OutlineInputBorder(
-                borderSide: const BorderSide(
-                  color: ColorsApp.primaryColor,
-                  width: 1.3,
-                ),
-                borderRadius: BorderRadius.circular(16.0),
-              ),
+
           errorBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.red,
-              width: 1.3,
-            ),
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          focusedErrorBorder: OutlineInputBorder(
             borderSide: const BorderSide(
               color: Colors.red,
               width: 1.3,

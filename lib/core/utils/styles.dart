@@ -51,7 +51,7 @@ abstract class Styles {
     fontFamily: 'Montserrat',
     fontSize: getResponsiveFontSize(context, fontSize: 17),
     fontWeight: FontWeightHelper.regular,
-    color: ColorsApp.grey,
+    color: ColorsApp.blackColor,
   );
 
   static TextStyle font14LightGreyRegular(context) => TextStyle(
@@ -72,7 +72,7 @@ abstract class Styles {
     fontFamily: 'Montserrat',
     fontSize: getResponsiveFontSize(context, fontSize: 14),
     fontWeight: FontWeightHelper.semiBold,
-    color: ColorsApp.primaryColor,
+    color: ColorsApp.darkPrimary,
   );
 
   static TextStyle font15DarkBlueMedium(context) => TextStyle(
